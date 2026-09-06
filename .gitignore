@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.tmp
+
+# Large binary files (>100MB) exceeding GitHub limits
+# Note: Video bài giảng (>5GB) và file PDF dung lượng lớn (>650MB) được lưu trữ local
+Learning_AI_VietNguyen/Videos/
+Learning_AI_VietNguyen/Slide AIDSML course_new_version.pdf
+*.mp4
+*.mov
+*.avi
