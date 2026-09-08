@@ -14,22 +14,27 @@ Kho tài liệu, mã nguồn thực hành và pipeline học máy chuẩn mực 
 
 1. [Tổng Quan Dự Án](#-tổng-quan-dự-án)
 2. [Cấu Trúc Thư Mục](#-cấu-trúc-thư-mục)
-3. [Pipeline Dự Đoán Tiểu Đường (End-to-End)](#-pipeline-dự-đoán-tiểu-đường-end-to-end)
-4. [Chương Trình AI/ML Nâng Cao (`Learning_AI_VietNguyen`)](#-chương-trình-aiml-nâng-cao-learning_ai_vietnguyen)
-5. [Hướng Dẫn Cài Đặt & Chạy](#-hướng-dẫn-cài-đặt--chạy)
-6. [Lưu Ý Về Tài Nguyên Dung Lượng Lớn](#-lưu-ý-về-tài-nguyên-dung-lượng-lớn)
+3. [Lab Thực Hành Trực Quan Động (Ex1)](#-lab-thực-hành-trực-quan-động-ex1)
+4. [Pipeline Dự Đoán Tiểu Đường (End-to-End)](#-pipeline-dự-đoán-tiểu-đường-end-to-end)
+5. [Chương Trình AI/ML Nâng Cao (`Learning_AI_VietNguyen`)](#-chương-trình-aiml-nâng-cao-learning_ai_vietnguyen)
+6. [Hướng Dẫn Cài Đặt & Chạy](#-hướng-dẫn-cài-đặt--chạy)
+7. [Lưu Ý Về Tài Nguyên Dung Lượng Lớn](#-lưu-ý-về-tài-nguyên-dung-lượng-lớn)
 
 ---
 
 ## 🎯 Tổng Quan Dự Án
 
-Dự án gồm 2 phần cốt lõi:
+Dự án gồm 3 phần cốt lõi:
 
-1. **Pipeline Chuẩn Mực Trong Machine Learning**:
+1. **Lab Thực Hành Trực Quan Động (Ex1 - Foundations Lab)**:
+   - Hệ thống trực quan hoá thuật toán và nền tảng lập trình cho AI/ML với giao diện Web tương tác (SVG graphs, BFS pathfinding, 1D Max Pooling, ReLU visualizer, Decision Tree explorer).
+   - 16 bài tập tự làm thực chiến kèm trình chấm điểm tự động CLI và bộ kiểm thử toàn diện 43 test cases.
+
+2. **Pipeline Chuẩn Mực Trong Machine Learning**:
    - Giải quyết bài toán phân loại nhị phân trên bộ dữ liệu `diabetes.csv`.
    - Áp dụng triệt để các kỹ thuật: Phân tích khám phá dữ liệu (EDA), xử lý giá trị khuyết thiếu phi thực tế (Missing values), nhận diện ngoại lai (Outliers with IQR), phân tầng dữ liệu tránh rò rỉ (Stratified Split, No Data Leakage), chuẩn hoá (Scaling), so sánh đa thuật toán, tinh chỉnh siêu tham số (Hyperparameter Tuning), đánh giá toàn diện (ROC-AUC, Precision-Recall Curve, Tối ưu ngưỡng quyết định) và lưu trữ Artifacts (`.pkl`).
 
-2. **Khoá Học Toàn Tập 18 Bài Học AI & Machine Learning**:
+3. **Khoá Học Toàn Tập 18 Bài Học AI & Machine Learning**:
    - Hệ thống giáo trình chi tiết, slide bài giảng HTML tương tác kèm công thức KaTeX.
    - Hướng dẫn từ các thuật toán cổ điển (Linear, Logistic, Trees, SVM, Ensemble, KNN, K-Means) đến các bài toán nâng cao: Xử lý ngôn ngữ tự nhiên (NLP / TF-IDF), Dự báo chuỗi thời gian (Time-series Forecasting), Hệ thống gợi ý (Recommendation System), Giảm chiều dữ liệu (PCA) và Đóng gói triển khai với FastAPI & Streamlit.
 
@@ -39,6 +44,14 @@ Dự án gồm 2 phần cốt lõi:
 
 ```
 Learning_Machine/
+├── Ex1/                        # Lab thực hành trực quan & tương tác động (Ex1 -> Ex8)
+│   ├── interactive_hub.html   # Giao diện Web tương tác động kèm Code Arena trực tiếp
+│   ├── launch_hub.py          # Script 1-click khởi chạy local server và mở trình duyệt
+│   ├── practice_exercises.py  # 16 bài tập tự làm thực chiến kèm trình chấm điểm
+│   ├── solutions_practice.py  # Lời giải mẫu chuẩn & phân tích độ phức tạp O(N)
+│   ├── test_all.py            # Bộ test tự động 43 test cases (pytest)
+│   ├── README.md              # Hướng dẫn chi tiết lab Ex1
+│   └── Ex1.py ... Ex8.py      # Mã nguồn nền tảng được module hoá & type hints
 ├── EDA.py                     # Khám phá dữ liệu, phân tích thống kê & phân phối
 ├── b2&3.py                    # Xử lý giá trị 0 không hợp lệ & lọc Outliers theo IQR
 ├── b4_split.py                # Chia tập dữ liệu Train/Test (Stratified, chống Data Leakage)
@@ -73,6 +86,39 @@ Learning_Machine/
     │   └── inference.py                        # Script suy luận mô hình độc lập
     ├── Transcripts/                            # Toàn bộ phụ đề/transcript các bài giảng
     └── recommendation_system.py                # Thuật toán gợi ý phim (Content-based)
+```
+
+---
+
+## 🎮 Lab Thực Hành Trực Quan Động (Ex1)
+
+Phân hệ `Ex1/` cung cấp một hệ thống học tập trực quan tương tác toàn diện, kết nối các bài toán lập trình nền tảng với các khái niệm cốt lõi trong Machine Learning & Deep Learning:
+
+### 1. Khởi Chạy Giao Diện Trực Quan (Interactive Hub)
+- **Cách 1:** Mở terminal trong thư mục `Ex1/` và chạy:
+  ```powershell
+  py launch_hub.py
+  ```
+  *(Trình duyệt sẽ tự động mở `http://localhost:8080` với đầy đủ Code Arena và bộ chấm điểm thời gian thực)*
+- **Cách 2:** Mở trực tiếp file `Ex1/interactive_hub.html` trên bất kỳ trình duyệt nào (hoạt động 100% offline).
+
+### 2. Bộ Công Cụ Tương Tác & Machine Learning Connections
+- **Ex1 (Số Âm/Dương):** Thùng phân loại động + Hàm kích hoạt **ReLU** ($f(x) = \max(0, x)$) & đo tỷ lệ *Dead Neurons*.
+- **Ex2 (Tần Suất K):** Biểu đồ tần suất SVG động + Kỹ thuật **Vocabulary Pruning** trong NLP.
+- **Ex3 (Cặp Liền Kề):** Khung trượt trực quan động (Sliding Window) mô phỏng lớp **1D Max Pooling** trong CNN.
+- **Ex4 (Hoán Vị):** Cây quyết định phân nhánh 3 tầng + Thuật toán **GridSearchCV** tìm kiếm siêu tham số.
+- **Ex5 (Khử Trùng Lặp):** Băng chuyền Hash Set $O(1)$ giữ thứ tự + Gộp bản ghi **Feature Store**.
+- **Ex6 (Ma Trận Chia Hết):** Lưới lọc số đổi màu động + Thuật toán chia tập **K-Fold Cross Validation**.
+- **Ex7 (Số Chẵn & Parity):** Bộ phân tích số học thời gian thực, tính **Hamming Weight** & Parity Bit trong mã hoá nhị phân.
+- **Ex8 (Word Chain):** Đồ thị mạng lưới SVG, trực quan hoá thuật toán **BFS Shortest Path**, Queue & Visited state.
+
+### 3. Tự Làm 16 Bài Tập Thực Chiến (`practice_exercises.py`)
+```powershell
+# Chấm điểm toàn bộ 16 bài tập:
+py Ex1/practice_exercises.py
+
+# Chạy bộ kiểm thử tự động toàn diện (43 test cases):
+py -m pytest Ex1/test_all.py -v
 ```
 
 ---
